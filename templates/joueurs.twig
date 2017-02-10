@@ -1,0 +1,72 @@
+{% extends 'layout.twig' %}
+    {% block title %}Teammate - Joueurs{% endblock %}
+    {% block content %}
+        {% block search %}
+            <div class="bloc_search col-xs-12 col-sm-10 col-sm-offset-1">
+                <h4 class="search_title">Recherche</h4>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3">
+                        <select class="form-control">
+                            <option value="" disabled selected style="display: none;">Choisir un Jeu</option>
+                            <option value="value1">Counter strike</option>
+                            <option value="value2">Rocket league</option>
+                            <option value="value3">League of legend</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <select class="form-control">
+                            <option value="" disabled selected style="display: none;">Choisir un Rank</option>
+                            <option value="value1">noob</option>
+                            <option value="value2">noob1</option>
+                            <option value="value3">nooob3</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <select class="form-control">
+                            <option value="" disabled selected style="display: none;">Type de joueur</option>
+                            <option value="value1">noob</option>
+                            <option value="value2">noob1</option>
+                            <option value="value3">nooob3</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <select class="form-control">
+                            <option value="" disabled selected style="display: none;">Nombre d'heure</option>
+                            <option value="value1">noob</option>
+                            <option value="value2">noob1</option>
+                            <option value="value3">nooob3</option>
+                        </select>
+                    </div>
+                    <button class="col-xs-12 col-sm-1 btn btn-primary">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </div>
+            </div>
+        {% endblock %}
+            {% block cards %}
+                <div class="row">
+                    <div class="card hovercard col-xs-12 col-sm-3 foo help">
+                        <img src="vendor/assets/img/jeu/1.jpg" alt="Counter Strike"/>
+                        <div class="avatar">
+                            <img src="vendor/assets/img/avatar/avatar.gif" alt="No SigNstar" />
+                        </div>
+                        <div class="info">
+                            <div class="title">No SignStar</div>
+                            <div class="desc col-xs-4"><span class="glyphicon glyphicon-chevron-right"></span> Sniper</div>
+                            <div class="desc col-xs-8 pull-right"><span class="glyphicon glyphicon-dashboard"></span> 1000 - 1500 Heures</div>
+                            <div class="desc col-xs-4"><span class="glyphicon glyphicon-map-marker"></span> Bordeaux</div>
+                            <div class="desc col-xs-8 pull-right"><span class="glyphicon glyphicon-flag"></span> 5 Compétitions</div>
+                        </div>
+                        <div class="bottom"><a href="#"> Voir le Profil</a></div>
+                    </div>
+                    </div>
+                </div>
+            {% endblock %}
+    {% endblock %}
+    {% block script %}
+        <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+        <script>window.sr = ScrollReveal();
+            sr.reveal('.foo');
+            sr.reveal('.bar');
+        </script>
+    {% endblock %}

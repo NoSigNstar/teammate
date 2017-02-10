@@ -1,0 +1,344 @@
+{% extends 'layout_dashboard.twig' %}
+    {% block title %}Counter Strike{% endblock %}
+    {% block content %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Tables
+                </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-dashboard"></i>  <a href="?p=dashboard">Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-table"></i> Counter Strike Global Offensive
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            {% for nom in nom %}
+                <div class="col-md-1">
+                    <img src="media/games/{{ nom.id }}.png" title="icon{{ nom.nom }}" class="icon_game">
+                </div>
+                <h1>{{ nom.nom }}</h1>
+            {% else %}
+                <h6>NOT FOUND</h6>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <h2> <i class="fa fa-table"></i> Table Heures</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Heures</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for heures in heures %}
+                            <tr>
+                                <th>{{ heures.id }}</th>
+                                <th>{{ heures.heure }} <em> Heures</em></th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th>NOT FOUND</th>
+                                <th>NOT FOUND</th>
+                            </tr>
+                        {% endfor  %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <h2> <i class="fa fa-table"></i> Table Ranks</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Ranks</th>
+                            <th>Icons</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for rank in rank %}
+                            <tr>
+                                <th>{{ rank.id }}</th>
+                                <th>{{ rank.rank }}</th>
+                                <th><img src="./media/rank_csgo/{{ rank.id }}.png" class="icon_rank"></th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th>NOT FOUND</th>
+                                <th>NOT FOUND</th>
+                            </tr>
+                        {% endfor  %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <h2> <i class="fa fa-table"></i> Table Ranks</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Ranks</th>
+                            <th>Icons</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for type in type %}
+                            <tr>
+                                <th>{{ type.id }}</th>
+                                <th>{{ type.type }}</th>
+                                <th><img src="./media/type_csgo/{{ type.id }}.png"></th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th>NOT FOUND</th>
+                                <th>NOT FOUND</th>
+                            </tr>
+                        {% endfor  %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <h2> <i class="fa fa-table"></i> Table Ranks</h2>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Expérience</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for exp in exp %}
+                            <tr>
+                                <th>{{ exp.id }}</th>
+                                <th>{{ exp.experience }}</th>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <th>NOT FOUND</th>
+                                <th>NOT FOUND</th>
+                            </tr>
+                        {% endfor  %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa  fa-clock-o"></i> Modifier le Nom
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h4>Modifications du Nom :</h4>
+                            <form method="post" action="vendor/assets/script_php/dashboard_nom_csgo.php" class="form-horizontal bb">
+                                <div class="form-group">
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" name="nom" placeholder="Counter Strike Global Offensive" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button class="btn btn-primary">Modifier</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fa  fa-clock-o"></i> Modifier les heures
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h4>Modifications des heures de Counter Strike Global offensive</h4>
+                            <form method="post" action="vendor/assets/script_php/dashboard_heure_csgo.php" class="form-horizontal bb">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Ajouter un tranche d'heure</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" name="heures" placeholder="1500 - 2000 Heures" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <h4></h4>
+                            <form method="post" action="vendor/assets/script_php/delete/delete_heure_csgo.php" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Supprimer un tranche d'heure</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fa fa-certificate"></i> Modifier les Ranks
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h4>Modifications des Ranks </h4>
+                            <form method="post" action="vendor/assets/script_php/dashboard_type_csgo.php" class="form-horizontal bb">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Ajouter untype de joueurs</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" name="type" placeholder="Lucker" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <h4></h4>
+                            <form method="post" action="vendor/assets/script_php/delete/delete_type_csgo.php" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Supprimer un type de joueurs</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fa fa-male"></i> Modifier les types de Joueurs
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h4>Modifications des types de joueurs</h4>
+                            <form method="post" action="vendor/assets/script_php/dashboard_type_csgo.php" class="form-horizontal bb">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Ajouter untype de joueurs</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" name="type" placeholder="Lucker" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <h4></h4>
+                            <form method="post" action="vendor/assets/script_php/delete/delete_type_csgo.php" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Supprimer un type de joueurs</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fa fa-male"></i> Modifier les Expériences lans
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h4>Modifications des types de joueurs</h4>
+                            <form method="post" action="vendor/assets/script_php/dashboard_exp_csgo.php" class="form-horizontal bb">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Ajouter une expérience en compétitions</label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="text" class="form-control" name="exp" placeholder="5 lans" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button class="btn btn-primary">Ajouter</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <h4></h4>
+                            <form method="post" action="vendor/assets/script_php/delete/delete_lan_csgo.php" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="control-label col-xs-3">Supprimer une Lan </label>
+                                    <div class="col-xs-1">
+                                        <input type="number" class="form-control" name="id" placeholder="id" required>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {% endblock %}

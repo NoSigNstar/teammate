@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Teammate</title>
+        <link rel="shortcut icon" href="vendor/assets/img/shortcut/logo_header.png" type="image/x-icon" />
+        <link rel="stylesheet" href="vendor/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/assets/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="vendor/assets/css/styles.css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+</head>
+<body>
+    <div class="homepage-hero-module">
+        <div class="video-container">
+            <div class="filter"></div>
+            <video autoplay loop class="fillWidth">
+                <source src="vendor/assets/video/esport.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+                <source src="vendor/assets/video/esport.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+            </video>
+            <div class="poster hidden">
+                <img src="vendor/assets/video/path_esport.jpg" alt="">
+            </div>
+            <button type="button" class="btn btn-default btn-index trigger-custom" data-toggle="modal" data-target="#myModal">S'inscrire</button>
+            <div class="bottom-index">
+                <a href="?p=home">Accéder au site <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Enregistrez vous</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="post" data-toggle="validator" role="form" action="vendor/assets/script_php/create_user.php">
+                        <div class="form-group">
+                            <label for="inputName" class="control-label col-xs-3">Nom</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control  col-xs-4" id="inputName" placeholder="Votre nom" name="nom" required>
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control  col-xs-4" id="inputName" placeholder="Votre prénom" name="prenom" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail" class="control-label col-xs-3">Email</label>
+                            <div class="col-xs-4">
+                                <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" data-error="Votre email n'est pas valide" required>
+                            </div>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="control-label col-xs-3">Password</label>
+                            <div class="col-xs-4">
+                                <input type="password" data-minlength="6" class="form-control" id="inputPassword" name="password" placeholder="Password" required>
+                                <div class="help-block">6 charactéres minimum.</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, le password ne correspond pas." placeholder="Confirm" required>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Votre Ville</label>
+                            <div class="col-xs-5">
+                                <input type="text" pattern="^[_A-z0-9]{1,}$"  class="form-control" id="inputTwitter" placeholder="Votre ville" name="ville" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">Date de naissance</label>
+                            <div class="col-xs-5">
+                                <input type="text" name="naissance"  id="naissance" class="form-control" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox col-xs-6 col-xs-offset-3">
+                                <label>
+                                    <input type="checkbox" id="terms" data-error="Vous devez être d'accord avec les conditions générales." required>
+                                    J'accepte les conditions générales.
+                                </label>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-2 col-xs-offset-5">
+                                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">s'inscrire</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</body>
+{% block scriptswitch %}
+    <script src="vendor/assets/js/jquery-3.1.1.min.js"></script>
+    <script src="vendor/assets/js/bootstrap.min.js"></script>
+    <script src="vendor/assets/js/iziModal.min.js"></script>
+    <script src="vendor/assets/js/esport.js"></script>
+    <script src="vendor/assets/js/validator.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#naissance" ).datepicker();
+        } );
+    </script>
+{% endblock %}
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
+{% block head %}
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Titre Teammate{% endblock %}</title>
+    {% block css %}
+    <link rel="stylesheet" href="vendor/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/assets/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="vendor/assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,100" rel="stylesheet">
+    {% endblock %}
+</head>
+{% endblock %}
+<body>
+{% block nav %}
+    <nav class="navbar navbar-default margin">
+        <div class="container-fluid col-xs-12 col-sm-10 col-sm-offset-1">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="www.teammate.com">
+                        <img src="vendor/assets/img/logo/logo.png">
+                    </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav anim">
+                    <li class="col-xs-11 col-xs-offset-1 col-sm-3"><a href="index.php?p=home">Home </a></li>
+                    <li class="col-xs-11 col-xs-offset-1 col-sm-3"><a href="index.php?p=joueurs">Joueurs <span class="badge">1510</span><span class="sr-only">(current)</span></a></li>
+                    <li class="col-xs-11 col-xs-offset-1 col-sm-3"><a href="index.php?p=competitions">Compétitions <span class="badge">510</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav setting col-xs-12 col-xs-12 col-sm-3 pull-right">
+                    <li class="avatar_header"><img src="vendor/assets/img/avatar/avatar.gif"></li>
+                    <li><a href="#">No SigNstar  <span class="glyphicon glyphicon-cog"></span></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    {% block banner %}
+    <div class="banner carousel slide">
+        <img src="vendor/assets/img/banner/banner.jpg">
+        <h1 class="banner_title">TEAM<em>MATE</em></h1>
+        <h3 class="banner_slogan">The place to be...</h3>
+    </div>
+    {% endblock %}
+{% block content %}
+{% endblock %}
+</div>
+{% block script %}
+{% endblock %}
+</body>
+</html>

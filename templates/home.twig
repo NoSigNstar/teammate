@@ -1,0 +1,40 @@
+{% extends 'layout.twig' %}
+    {% block title %}Teammate - Home{% endblock %}
+    {% block video %}
+    {% endblock %}
+    {% block content %}
+     <div class="content">
+        <div class="actu">
+            <div class="actu-title">
+                <p>Actualitées</p>
+            </div>
+            <div id="twitch" class="twitch col-md-8">
+            </div>
+            <div class="g2a col-md-4">
+                <img src="vendor/assets/img/g2a/g2a.png">
+            </div>
+        </div>
+     </div>
+    {% endblock %}
+    {% block scriptswitch %}portrait
+        <script src= "http://player.twitch.tv/js/embed/v1.js"></script>
+        <script src="vendor/assets/js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.0.11/jquery.mb.YTPlayer.min.js"></script>
+
+        <script type="text/javascript">
+            var myPlayer;
+            jQuery(function () {
+                var isIframe=function(){var a=!1;try{self.location.href!=top.location.href&&(a=!0)}catch(b){a=!0}return a};if(!isIframe()){var logo=$("<a href='http://pupunzi.com/#mb.components/components.html' style='position:absolute;top:0;z-index:1000'><img id='logo' border='0' src='http://pupunzi.com/images/logo.png' alt='mb.ideas.repository'></a>");$("#wrapper").prepend(logo),$("#logo").fadeIn()}
+                myPlayer = jQuery("#video").YTPlayer();
+            });
+           var options = {
+                width: 640,
+                height: 360,
+                channel: "{esl_csgo}",
+                //video: "{VIDEO_ID}"
+            };
+            var player = new Twitch.Player("twitch", options);
+            player.setVolume(0.5);
+            player.addEventListener(Twitch.Player.PAUSE, () => { console.log('Player is paused!'); });
+          </script>
+    {% endblock %}

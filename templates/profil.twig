@@ -1,0 +1,126 @@
+{% extends 'layout.twig' %}
+    {% block title %}Teammate - Profil{% endblock %}
+{% block content %}
+    <div class="content">
+        <div class="content-center">
+            <div class="jumbotron">
+                <h2>Mon Profil</h2>
+                <p>Bonjour <small>{{ userPrenom }} {{ userNom }}</small>
+                    <span class="badge">Aucun profil trouvé</span>
+            </div>
+            <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#Profil" aria-expanded="false" aria-controls="collapseExample">
+                    Mon Profil <span class="glyphicon glyphicon-user"></span>
+                </a>
+            </p>
+            <div class="collapse" id="Profil">
+                <div class="card card-block">
+                    <form class="form-horizontal" enctype="multipart/form-data" method="post" data-toggle="validator" role="form" action="../vendor/assets/script_php/insert_profil.php">
+                        <div class="form-group">
+                            <label for="inputName" class="control-label col-xs-3">Votre Speudo</label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control  col-xs-4" placeholder="Votre speudo" id="pseudo" name="pseudo" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputName" class="control-label col-xs-3">Votre Description</label>
+                            <div class="col-xs-4">
+                                <textarea class="form-control" id="commentaire" name="commentaire" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fileHelp" class="control-label col-xs-3">Votre avatar</label>
+                            <div class="col-xs-4">
+                                <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" id="avatar" name="avatar" required>
+                                <small class="form-text text-muted">Les formats jpg, png, gif sont supportés (max 2 mo)</small>
+                            </div>
+                        </div>
+                        <form class="form-horizontal" method="post" data-toggle="validator" role="form" action="#">
+                            <div class="form-group">
+                                <label for="inputName" class="control-label col-xs-3">Votre Description en jeu</label>
+                                <div class="col-xs-4">
+                                    <textarea class="form-control" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="control-label col-xs-3">Choisir votre jeu video</label>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option value="" disabled selected style="display: none;">Choisir un Jeu</option>
+                                        {% for nom in nom %}
+                                            <option value="value {{ nom.id }} "> {{ nom.nom }}</option>
+                                        {% else %}
+                                            <option value="value1">Aucune jeux trouvé</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="control-label col-xs-3">Nombre heures jouées</label>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option value="" disabled selected style="display: none;">Nombre d'heures</option>
+                                        {% for heures in heures %}
+                                            <option value="value {{ heures.id }} "> {{ heures.heure }} Heures </option>
+                                        {% else %}
+                                            <option value="value1">Aucune heures disponibles</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="control-label col-xs-3">Rank</label>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option value="" disabled selected style="display: none;">Votre rank</option>
+                                        {% for rank in rank %}
+                                            <option value="value {{ rank.id }} ">{{ rank.rank }}</option>
+                                        {% else %}
+                                                 <div class="collapse" id="jeu">
+                <div class="card card-block">
+
+                </div>
+            </div>   <option value="value1">Aucune heures disponibles</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="control-label col-xs-3">Style de jeu</label>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option value="" disabled selected style="display: none;">Votre Style de jeu</option>
+                                        {% for type in type %}
+                                            <option value="value {{ type.id }} ">{{ type.type }}</option>
+                                        {% else %}
+                                            <option value="value1">Aucun types disponibles</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputName" class="control-label col-xs-3">Expérience en compétition </label>
+                                <div class="col-xs-4">
+                                    <select class="form-control">
+                                        <option value="" disabled selected style="display: none;">Expérience en lan</option>
+                                        {% for exp in exp %}
+                                            <option value="value {{ exp.id }} ">{{ exp.experience }}</option>
+                                        {% else %}
+                                            <option value="value1">Aucun types disponibles</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2 col-xs-offset-5">
+                                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
